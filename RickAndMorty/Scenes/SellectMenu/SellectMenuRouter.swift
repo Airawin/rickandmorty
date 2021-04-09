@@ -22,5 +22,24 @@ class SellectMenuRouter: BaseRouter {
       
       viewController?.navigationController?.pushViewController(homeViewController, animated: true)
     }
+    
+    func navigateToLocationDetail() {
+        let locationViewController = LocationDetailViewController()
+        let router = LocationDetailRouter(viewController: locationViewController)
+        let presenter = LocationDetailPresenter(view: locationViewController, router: router)
+        locationViewController.presenter = presenter
+        
+        viewController?.navigationController?.pushViewController(locationViewController, animated: true)
+    }
+    
+    func navigateToEpisodeDetail() {
+        let episodeViewController = EpisodeViewController()
+        let router = EpisodeRouter(viewController: episodeViewController)
+        let presenter = EpisodePresenter(view: episodeViewController, router: router)
+        episodeViewController.presenter = presenter
+        
+        viewController?.navigationController?.pushViewController(episodeViewController, animated: true)
+        
+    }
   
 }

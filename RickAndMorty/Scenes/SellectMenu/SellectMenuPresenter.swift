@@ -22,5 +22,13 @@ class SellectMenuPresenter {
     func presenCharacter() {
         router.navigateToCharacterDetail()
     }
+    
+    func presenLocation() {
+        router.navigateToLocationDetail()
+    }
+    
+    func presenEpisode() {
+        router.navigateToEpisodeDetail()
+    }
   
 }

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "RICKMORTY_V4_HC_-_COMP_FNL_WEB.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

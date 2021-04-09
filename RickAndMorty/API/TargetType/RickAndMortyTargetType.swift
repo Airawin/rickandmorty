@@ -4,6 +4,7 @@ import Moya
 enum RickAndMortyTargetType {
   case character
   case location
+  case episode
 }
 
 // MARK: TargetType
@@ -16,6 +17,7 @@ extension RickAndMortyTargetType: TargetType {
     switch self {
     case .character: return "character"
     case .location: return "location"
+    case .episode: return "episode"
     }
   }
   

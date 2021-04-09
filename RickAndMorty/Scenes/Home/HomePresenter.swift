@@ -29,5 +29,4 @@ class HomePresenter {
   func selectCharacter(_ character: RickAndMortyCharacter) {
     router.navigateToCharacterDetail(character: character)
   }
-  
 }
