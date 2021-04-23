@@ -35,7 +35,7 @@ class LocationDetailView: BaseView {
   // MARK: SetupView
   
     private func setupView(){
-        addSubview(collectionView)
+        addSubviews(collectionView)
         
         collectionView.snp.makeConstraints{ make in
             make.top.equalTo(300)

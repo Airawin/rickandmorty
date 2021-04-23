@@ -6,5 +6,5 @@ struct RickAndMortyLocation: Codable {
     var type: String
     var dimension: String
     var url: String
-    var residents: [String]
+    var residents: Array<String>
 }

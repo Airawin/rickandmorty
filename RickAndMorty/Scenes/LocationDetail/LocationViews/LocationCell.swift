@@ -5,8 +5,8 @@ import Kingfisher
 
 class LocationCell: UICollectionViewCell {
     
-    let urlLabel = Label(size: .body, weight: .bold)
-    let typeLabel = Label(size: .body, weight: .bold)
+    let locationImageView = UIImageView()
+    let nameLabel = Label(size: .body, weight: .bold)
     
     // MARK: Initial
     
@@ -19,22 +19,42 @@ class LocationCell: UICollectionViewCell {
         fatalError("init(coder:)")
     }
     func setupView() {
-        contentView.addSubviews(urlLabel, urlLabel)
+        contentView.addSubviews(locationImageView, nameLabel)
         
-        urlLabel.snp.makeConstraints{ make in
+        locationImageView.layer.cornerRadius = 100
+        locationImageView.clipsToBounds = true
+        locationImageView.contentMode = .scaleToFill
+        locationImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        locationImageView.snp.makeConstraints{ make in
+            make.top.equalToSuperview()
+            make.xEdges.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        nameLabel.snp.makeConstraints{ make in
             make.bottom.equalTo(layoutGuide.snp.topMargin, offset: .default)
             make.centerX.equalToSuperview()
         }
         
-//        typeLabel.snp.makeConstraints{ make in
-//            make.top.equalTo(urlLabel.snp.top)
-//            make.leading.equalTo(urlLabel.snp.trailing, offset: .default)
-//            make.trailing.equalToSuperview(offset: .default)
-//        }
+        
     }
     
     func setup(location: RickAndMortyLocation ) {
-        urlLabel.text = location.url
-//        typeLabel.text = location.type
+        nameLabel.text = location.name
+    }
+    
+    func setupResidents(_ indexPath: IndexPath, location: RickAndMortyLocation) {
+        let APIResident = location.residents[indexPath.row]
+        var firstAPI = String(APIResident.dropLast())
+        while firstAPI.last != "/" {
+            firstAPI = String(firstAPI.dropLast())
+        }
+        let subAPI = APIResident.components(separatedBy: "/")
+        let number = subAPI[subAPI.endIndex-1]
+        let lastChar = String(number) + ".jpeg"
+        let imageLocation = firstAPI + "avatar/" + lastChar
+        let url = URL(string: imageLocation)
+        locationImageView.kf.setImage(with: url)
     }
 }

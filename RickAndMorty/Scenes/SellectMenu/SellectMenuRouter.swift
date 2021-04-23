@@ -33,9 +33,9 @@ class SellectMenuRouter: BaseRouter {
     }
     
     func navigateToEpisodeDetail() {
-        let episodeViewController = EpisodeViewController()
-        let router = EpisodeRouter(viewController: episodeViewController)
-        let presenter = EpisodePresenter(view: episodeViewController, router: router)
+        let episodeViewController = EpisodeDetailViewController()
+        let router = EpisodeDetailRouter(viewController: episodeViewController)
+        let presenter = EpisodeDetailPresenter(view: episodeViewController, router: router)
         episodeViewController.presenter = presenter
         
         viewController?.navigationController?.pushViewController(episodeViewController, animated: true)
